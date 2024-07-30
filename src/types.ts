@@ -1,4 +1,4 @@
-import type { paths } from "./api-types";
+import type { paths, webhooks } from "./api-types";
 
 export type GetRequestBody<
 	Path extends keyof paths,
@@ -29,3 +29,8 @@ export type GetResponse<
 		? paths[Path][Method]["responses"][200]["content"]["application/json"]
 		: never
 	: never;
+
+export type MaybePromise<T> = Promise<T> | T;
+
+export type WebhookBody =
+	webhooks["payment-data"]["post"]["requestBody"]["content"]["application/json"];

@@ -1,9 +1,11 @@
 import type { paths } from "./api-types";
-import type { GetRequestBody, GetResponse } from "./types";
+import type { GetRequestBody, GetResponse, WebhookBody } from "./types";
+import { generateSignature } from "./utils";
 
 export class Elycart {
 	token: string;
 	secretKey: string | undefined;
+	private listeners: ((context: WebhookBody, custom: any) => unknown)[] = [];
 
 	constructor(token: string, secretKey?: string) {
 		this.token = token;
@@ -33,6 +35,23 @@ export class Elycart {
 		const response = await fetch(`https://api.elycart.com${path}`, options);
 
 		return response.json();
+	}
+
+	/**
+	 * Рассказать о пришедшем событии
+	 */
+	async emit(data: WebhookBody, requestSignature: string) {
+		if (!this.secretKey)
+			throw new Error(
+				"Чтобы принимать нотификацию вам необходимо передать secretKey вторым аргументом",
+			);
+
+		const signature = generateSignature(this.secretKey, data);
+		if (signature !== requestSignature) throw Error("Токены не равны");
+
+		for (const run of this.listeners) {
+			await run(data, 1); // custom
+		}
 	}
 
 	/** @generated start-methods */
