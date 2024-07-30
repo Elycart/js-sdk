@@ -5,7 +5,7 @@ import { generateSignature } from "./utils";
 export class Elycart {
 	token: string;
 	secretKey: string | undefined;
-	private listeners: ((context: WebhookBody, custom: any) => unknown)[] = [];
+	private listeners: ((context: WebhookBody) => unknown)[] = [];
 
 	constructor(token: string, secretKey?: string) {
 		this.token = token;
@@ -37,6 +37,25 @@ export class Elycart {
 		return response.json();
 	}
 
+	on<const Filter>(handler: (context: WebhookBody) => unknown) {
+		if (!this.secretKey)
+			throw new Error(
+				"Чтобы принимать нотификацию вам необходимо передать secretKey вторым аргументом",
+			);
+
+		// if (!handler && typeof filtersOrHandler === "function")
+		// 	// @ts-expect-error
+		this.listeners.push(handler);
+
+		// if (typeof handler === "function" && typeof filtersOrHandler === "function")
+		// 	this.listeners.push(async (context, custom) => {
+		// 		// @ts-expect-error
+		// 		if ((await filters(context)) === true) return handler(context, custom);
+		// 	});
+
+		return this;
+	}
+
 	/**
 	 * Рассказать о пришедшем событии
 	 */
@@ -50,7 +69,7 @@ export class Elycart {
 		if (signature !== requestSignature) throw Error("Токены не равны");
 
 		for (const run of this.listeners) {
-			await run(data, 1); // custom
+			await run(data); // custom
 		}
 	}
 
