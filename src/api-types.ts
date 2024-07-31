@@ -66,7 +66,7 @@ export interface webhooks {
 							/** @description Состояние платежа */
 							status: "created" | "waiting" | "finished" | "cancelled";
 							/** @description Любая JSON сущность для передачи необходимых вам параметров */
-							data: unknown;
+							data?: unknown;
 						};
 					};
 				};
@@ -111,7 +111,7 @@ export interface components {
 			/** @description Состояние платежа */
 			status: "created" | "waiting" | "finished" | "cancelled";
 			/** @description Любая JSON сущность для передачи необходимых вам параметров */
-			data: unknown;
+			data?: unknown;
 		};
 		/**
 		 * Format: uuid
@@ -162,7 +162,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					};
 					"multipart/form-data": {
 						/**
@@ -184,7 +184,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					};
 					"text/plain": {
 						/**
@@ -206,7 +206,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					};
 				};
 			};
@@ -263,7 +263,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					}[];
 					"multipart/form-data": {
 						/**
@@ -285,7 +285,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					}[];
 					"text/plain": {
 						/**
@@ -307,7 +307,7 @@ export interface operations {
 						/** @description Состояние платежа */
 						status: "created" | "waiting" | "finished" | "cancelled";
 						/** @description Любая JSON сущность для передачи необходимых вам параметров */
-						data: unknown;
+						data?: unknown;
 					}[];
 				};
 			};
@@ -329,7 +329,7 @@ export interface operations {
 					successURL?: null | Record<string, never> | string;
 					failureURL?: null | Record<string, never> | string;
 					/** @description Любая JSON сущность для передачи необходимых вам параметров */
-					data: unknown;
+					data?: unknown;
 				};
 				"multipart/form-data": {
 					/** @description Заголовок платежа */
@@ -344,7 +344,7 @@ export interface operations {
 					successURL?: null | Record<string, never> | string;
 					failureURL?: null | Record<string, never> | string;
 					/** @description Любая JSON сущность для передачи необходимых вам параметров */
-					data: unknown;
+					data?: unknown;
 				};
 				"text/plain": {
 					/** @description Заголовок платежа */
@@ -359,7 +359,7 @@ export interface operations {
 					successURL?: null | Record<string, never> | string;
 					failureURL?: null | Record<string, never> | string;
 					/** @description Любая JSON сущность для передачи необходимых вам параметров */
-					data: unknown;
+					data?: unknown;
 				};
 			};
 		};

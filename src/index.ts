@@ -2,6 +2,8 @@ import type { paths } from "./api-types";
 import type { GetRequestBody, GetResponse, WebhookBody } from "./types";
 import { generateSignature } from "./utils";
 
+export * from "./webhook";
+
 export class Elycart {
 	token: string;
 	secretKey: string | undefined;
@@ -24,6 +26,7 @@ export class Elycart {
 			headers: {
 				"user-agent":
 					"Elycart SDK for Node.js (https://github.com/elycaty/js-sdk)",
+				Authorization: `Bearer ${this.token}`,
 			},
 		};
 
