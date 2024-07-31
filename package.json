@@ -5,6 +5,7 @@
 	"main": "./dist/index.cjs",
 	"types": "./dist/index.d.ts",
 	"description": "SDK для Elycart",
+	"keywords": ["payments", "cards", "elycart", "qiwi", "beeline"],
 	"readme": "https://github.com/elycart/js-sdk.git",
 	"homepage": "https://github.com/elycart/js-sdk.git",
 	"type": "module",
