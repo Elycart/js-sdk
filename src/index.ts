@@ -80,7 +80,7 @@ export class Elycart {
 	 * @tags Merchant
 	 *
 	 *
-	 * [Documentation](TODO://)
+	 * [Documentation](https://docs.elycart.com/#tag/merchant/GET/merchant/invoices/{invoiceId})
 	 */
 	getInvoice(
 		/** Идентификатор выставленного счёта */ invoiceId: paths["/merchant/invoices/{invoiceId}"]["get"]["parameters"]["path"]["invoiceId"],
@@ -93,7 +93,7 @@ export class Elycart {
 	 * @tags Merchant
 	 *
 	 *
-	 * [Documentation](TODO://)
+	 * [Documentation](https://docs.elycart.com/#tag/merchant/GET/merchant/invoices/)
 	 */
 	getInvoices(): Promise<GetResponse<"/merchant/invoices/", "get">> {
 		return this.request("GET", "/merchant/invoices/");
@@ -104,7 +104,7 @@ export class Elycart {
 	 * @tags Merchant
 	 *
 	 *
-	 * [Documentation](TODO://)
+	 * [Documentation](https://docs.elycart.com/#tag/merchant/POST/merchant/invoices/create)
 	 */
 	createInvoice(
 		body: GetRequestBody<"/merchant/invoices/create", "post">,
@@ -117,7 +117,7 @@ export class Elycart {
 	 * @tags Merchant
 	 *
 	 * @deprecated
-	 * [Documentation](TODO://)
+	 * [Documentation](https://docs.elycart.com/#tag/merchant/POST/merchant/resend-webhook/{invoiceId})
 	 */
 	testWebhook(
 		/** Идентификатор выставленного счёта */ invoiceId: paths["/merchant/resend-webhook/{invoiceId}"]["post"]["parameters"]["path"]["invoiceId"],
