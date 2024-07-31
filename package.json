@@ -1,11 +1,45 @@
 {
 	"name": "elycart-api",
-	"module": "src/index.ts",
+	"version": "0.0.1",
+	"module": "./dist/index.js",
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"description": "SDK для Elycart",
+	"readme": "https://github.com/elycart/js-sdk.git",
+	"homepage": "https://github.com/elycart/js-sdk.git",
 	"type": "module",
-	"devDependencies": {
-		"@types/bun": "latest"
+	"author": {
+		"name": "kravets",
+		"url": "https://github.com/elycart"
 	},
-	"peerDependencies": {
-		"typescript": "^5.0.0"
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/elycart/js-sdk.git"
+	},
+	"exports": {
+		".": {
+			"import": {
+				"types": "./dist/index.d.ts",
+				"default": "./dist/index.js"
+			},
+			"require": {
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
+			}
+		},
+		"./openapi": {
+			"import": {
+				"types": "./dist/api-types.d.ts"
+			},
+			"require": {
+				"types": "./dist/api-types.d.cts"
+			}
+		}
+	},
+	"files": ["dist"],
+	"devDependencies": {
+		"@types/bun": "latest",
+		"pkgroll": "^2.4.2",
+		"typescript": "^5.5.4"
 	}
 }
