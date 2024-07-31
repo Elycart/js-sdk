@@ -35,8 +35,8 @@ jobs:
             - name: Type-check
               run: tsc --noEmit
 
-            - name: Publish package to JSR
-              run: bunx jsr publish --allow-dirty
+            # - name: Publish package to JSR
+            #   run: bunx jsr publish --allow-dirty
 
             - name: Install Node
               uses: actions/setup-node@v4
