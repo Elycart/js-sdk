@@ -1,13 +1,13 @@
 # Elycart SDK для TypeScript/JavaScript
 
-[![npm](https://img.shields.io/npm/v/elycart-api?logo=npm&style=flat&labelColor=000&color=3b82f6)](https://www.npmjs.org/package/elycart-api)
-[![JSR](https://jsr.io/badges/@kravets/elycart-api)](https://jsr.io/@kravets/elycart-api)
-[![JSR Score](https://jsr.io/badges/@kravets/elycart-api/score)](https://jsr.io/@kravets/elycart-api)
+[![npm](https://img.shields.io/npm/v/@elycart/api?logo=npm&style=flat&labelColor=000&color=3b82f6)](https://www.npmjs.org/package/@elycart/api)
+[![JSR](https://jsr.io/badges/@elycart/api)](https://jsr.io/@elycart/api)
+[![JSR Score](https://jsr.io/badges/@elycart/api/score)](https://jsr.io/@elycart/api)
 
 Библиотека для взаимодействия с [API Elycart](https://docs.elycart.com/).
 
 ```ts
-import { Elycart } from "elycart-api";
+import { Elycart } from "@elycart/api";
 
 const elycart = new Elycart(process.env.TOKEN, process.env.SECRET_KEY);
 
@@ -20,7 +20,7 @@ const payment = await elycart.createInvoice({
 console.log(payment.url);
 ```
 
-[API Reference](https://jsr.io/@kravets/elycart-api/doc)
+[API Reference](https://jsr.io/@elycart/api/doc)
 
 ### Фичи
 
@@ -32,7 +32,7 @@ console.log(payment.url);
 -   Современная и с **умнейшими** типами
 -   0 зависимостей
 <!-- -   Берёт работу с [подписью запроса](https://www.tbank.ru/kassa/dev/payments/index.html#section/Podpis-zaprosa) на себя -->
--   [Есть на JSR](https://jsr.io/@kravets/elycart-api)
+-   [Есть на JSR](https://jsr.io/@elycart/api)
 
 ### Webhook
 
@@ -40,7 +40,7 @@ console.log(payment.url);
 
 ```ts
 import { Hono } from "hono";
-import { Elycart, webhookHandler } from "elycart-api";
+import { Elycart, webhookHandler } from "@elycart/api";
 
 const elycart = new Elycart(process.env.TOKEN, process.env.SECRET_KEY);
 
@@ -48,7 +48,9 @@ elycart.on(({ data }) => {});
 
 const app = new Hono();
 
-app.get("/", webhookHandler(elycart, "hono"));
+app.post("/", webhookHandler(elycart, "hono"));
+
+export default app;
 ```
 
 ### Поддерживаемые webhook адаптеры
@@ -67,7 +69,7 @@ app.get("/", webhookHandler(elycart, "hono"));
 ```ts
 // a non-existing framework for the example
 import { App } from "some-http-framework";
-import { Elycart } from "elycart-api";
+import { Elycart } from "@elycart/api";
 
 const elycart = new Elycart(process.env.TOKEN, process.env.SECRET_KEY);
 

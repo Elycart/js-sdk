@@ -1,5 +1,5 @@
 {
-	"name": "@kravets/elycart-api",
+	"name": "@elycart/api",
 	"version": "0.0.1",
 	"exports": {
 		".": "./src/index.ts",

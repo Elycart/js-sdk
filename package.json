@@ -1,5 +1,5 @@
 {
-	"name": "elycart-api",
+	"name": "@elycart/api",
 	"version": "0.0.1",
 	"module": "./dist/index.js",
 	"main": "./dist/index.cjs",
@@ -7,10 +7,10 @@
 	"description": "SDK для Elycart",
 	"keywords": ["payments", "cards", "elycart", "qiwi", "beeline"],
 	"readme": "https://github.com/elycart/js-sdk.git",
-	"homepage": "https://github.com/elycart/js-sdk.git",
+	"homepage": "https://docs.elycart.com",
 	"type": "module",
 	"author": {
-		"name": "kravets",
+		"name": "Elycart",
 		"url": "https://github.com/elycart"
 	},
 	"repository": {
@@ -40,6 +40,7 @@
 	"files": ["dist"],
 	"devDependencies": {
 		"@types/bun": "latest",
+		"hono": "^4.5.3",
 		"pkgroll": "^2.4.2",
 		"typescript": "^5.5.4"
 	}
